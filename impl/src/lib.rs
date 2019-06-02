@@ -85,7 +85,7 @@ fn generate_assets(ident: &syn::Ident, folder_path: String) -> quote::Tokens {
           }
 
           fn names() -> std::slice::Iter<'static, &'static str> {
-            static items: [&str; #array_len] = [#(#list_values),*];
+            const items: [&str; #array_len] = [#(#list_values),*];
             items.iter()
           }
           pub fn iter() -> impl Iterator<Item = std::borrow::Cow<'static, str>> {
